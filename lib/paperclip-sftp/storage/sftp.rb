@@ -53,7 +53,7 @@ module Paperclip
 
       def flush_writes #:nodoc:
         @queued_for_write.each do |style, file|
-          mkdir_p(File.dirname(path(style)))
+          # mkdir_p(File.dirname(path(style)))
           log("uploading #{file.path} to #{path(style)}")
           sftp.upload!(file.path, path(style))
           sftp.setstat!(path(style), :permissions => 0644)
